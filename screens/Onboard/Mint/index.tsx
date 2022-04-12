@@ -3,6 +3,7 @@ import Layout from "components/Layout";
 import { useContract, useSigner } from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { useState } from "react";
+import Link from "next/Link";
 
 const CONTRACT_ADDRESS = "0x22647A442F2BB92272F00D4990b8B6C91d9120a4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
@@ -48,7 +49,13 @@ const OnboardMint = () => {
 
   return (
     <Layout
-      card={<MintCard mint={mint} isLoading={isMintingLoading} />}
+      card={
+        <MintCard
+          mint={mint}
+          isLoading={isMintingLoading}
+          mintedTokenId={mintedTokenId}
+        />
+      }
       text={<WalletText mintedTokenId={mintedTokenId} />}
     />
   );
@@ -80,9 +87,14 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
 interface MintCardProps {
   mint: () => Promise<void>;
   isLoading: boolean;
+  mintedTokenId?: number | null;
 }
 
-const MintCard: React.FC<MintCardProps> = ({ mint, isLoading }) => {
+const MintCard: React.FC<MintCardProps> = ({
+  mint,
+  isLoading,
+  mintedTokenId,
+}) => {
   return (
     <div>
       <div className="text-center">
@@ -90,9 +102,17 @@ const MintCard: React.FC<MintCardProps> = ({ mint, isLoading }) => {
         <h2 className="text-xl font-bold mt-8">Mint your free nft</h2>
         <p className="text-gray-400 mt-2 mb-8">blabla</p>
         <div className="mt-12">
-          <Button isLoading={isLoading} onClick={mint}>
-            Mint
-          </Button>
+          {!mintedTokenId ? (
+            <Button isLoading={isLoading} onClick={mint}>
+              Mint
+            </Button>
+          ) : (
+            <Link href="/onboard/congrats">
+              <a>
+                <Button>next</Button>
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </div>
