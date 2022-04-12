@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
   return (
-    <div className="bg-zinc-900 min-h-screen text-white pt-8 pb-12 font-IBM bg-[url('../utils/bg-gradient.svg')]">
+    <div className="bg-zinc-900 min-h-screen text-white pt-8 pb-12 font-IBM bg-[url('../public/bg-gradient.svg')]">
       <div className="h-1 w-48 bg-indigo-600 absolute top-0"></div>
       <div className="lg:w-9/12 m-auto lg:px-0 px-4">
         <header className="flex items-center justify-between">

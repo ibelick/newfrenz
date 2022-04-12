@@ -5,7 +5,7 @@ import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { useState } from "react";
 import Link from "next/Link";
 
-const CONTRACT_ADDRESS = "0x22647A442F2BB92272F00D4990b8B6C91d9120a4";
+const CONTRACT_ADDRESS = "0x6bD8256A271E3053c0872FB716BDefab09DF61B4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
 const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com";
 
@@ -23,7 +23,7 @@ const OnboardMint = () => {
     setIsMintingLoading(true);
     try {
       console.log("Going to pop wallet now to pay gas...");
-      let nftTxn = await contract.create();
+      let nftTxn = await contract.create("wasssuuuu");
       console.log("Mining...please wait.");
       await nftTxn.wait();
       console.log(
