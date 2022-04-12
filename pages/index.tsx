@@ -1,9 +1,18 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useConnect, useAccount, useContract, useSigner } from "wagmi";
+import {
+  useConnect,
+  useAccount,
+  useContract,
+  useSigner,
+  useNetwork,
+} from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
+import { chain } from "wagmi";
 
 const CONTRACT_ADDRESS = "0x0fa2353C17280CF8De6e72A4db614a52b9FEa885";
+const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
+const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com/";
 
 const Home: NextPage = () => {
   const [{ data: connectData, loading: isLoadingConnectData }, connect] =
@@ -12,12 +21,19 @@ const Home: NextPage = () => {
     useAccount({
       fetchEns: true,
     });
-  const [{ data, error, loading }, getSigner] = useSigner();
+  const [{ data: signerData, loading: isLoadingSignerData }, getSigner] =
+    useSigner();
   const contract = useContract({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: OnboardingCollectible.abi,
-    signerOrProvider: data,
+    signerOrProvider: signerData,
   });
+  const [
+    { data: chainData, error, loading: isLoadingChainData },
+    switchNetwork,
+  ] = useNetwork();
+  const isUserConnectedToCorrectChain =
+    chainData?.chain && chainData?.chain?.id === chain.rinkeby.id;
 
   const mint = async () => {
     try {
@@ -64,6 +80,15 @@ const Home: NextPage = () => {
       {accountData?.address ? (
         <div>
           <button onClick={mint}>mint</button>
+        </div>
+      ) : null}
+      {switchNetwork && !isUserConnectedToCorrectChain ? (
+        <div className="flex flex-col items-start">
+          <span>
+            your connect to the wrong chain, current chain:{" "}
+            {chainData?.chain?.name}
+          </span>
+          <button onClick={() => switchNetwork(4)}>switch to Rinkeby</button>
         </div>
       ) : null}
     </div>
