@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useConnect, useAccount } from "wagmi";
-import { useState } from "react";
+import { useConnect, useAccount, useContract, useSigner } from "wagmi";
+import OnboardingCollectible from "utils/OnboardingCollectible.json";
+
+const CONTRACT_ADDRESS = "0x0fa2353C17280CF8De6e72A4db614a52b9FEa885";
 
 const Home: NextPage = () => {
   const [{ data: connectData, loading: isLoadingConnectData }, connect] =
@@ -10,6 +12,26 @@ const Home: NextPage = () => {
     useAccount({
       fetchEns: true,
     });
+  const [{ data, error, loading }, getSigner] = useSigner();
+  const contract = useContract({
+    addressOrName: CONTRACT_ADDRESS,
+    contractInterface: OnboardingCollectible.abi,
+    signerOrProvider: data,
+  });
+
+  const mint = async () => {
+    try {
+      console.log("Going to pop wallet now to pay gas...");
+      let nftTxn = await contract.makeAnEpicNFT();
+      console.log("Mining...please wait.");
+      await nftTxn.wait();
+      console.log(
+        `Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
+      );
+    } catch (error) {
+      console.error("error", error);
+    }
+  };
 
   return (
     <div>
@@ -21,7 +43,7 @@ const Home: NextPage = () => {
       <h1 className="text-3xl font-bold">Hello world!</h1>
       {connectData?.connectors?.map((connector) => {
         return (
-          <div>
+          <div key={connector.id}>
             <span>{connector.name}</span>{" "}
             <button
               onClick={() => {
@@ -37,6 +59,11 @@ const Home: NextPage = () => {
       {accountData?.address ? (
         <div>
           <button onClick={disconnect}>Disconnect</button>
+        </div>
+      ) : null}
+      {accountData?.address ? (
+        <div>
+          <button onClick={mint}>mint</button>
         </div>
       ) : null}
     </div>
