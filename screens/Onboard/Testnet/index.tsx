@@ -11,7 +11,18 @@ const OnboardWallet = () => {
 const WalletText = () => {
   return (
     <div>
-      <p>hey</p>
+      <h2 className="text-sm font-bold">What is an Ethereum account?</h2>
+      <p className="mt-4 text-sm text-gray-500">
+        An Ethereum account is an entity that can send transactions and has a
+        balance. An Ethereum account has an Ethereum address, like an inbox has
+        an email address. You can use this to send funds to an account.
+      </p>
+      <h2 className="text-sm font-bold mt-8">How to stay safe?</h2>
+      <p className="mt-4 text-sm text-gray-500">
+        Wallets require a bit of a different mindset when it comes to safety.
+        Financial freedom and the ability to access and use funds anywhere comes
+        with a bit of responsibility – there’s no customer support in crypto.
+      </p>
     </div>
   );
 };
@@ -28,21 +39,30 @@ const NoWallet = () => {
         <h2 className="text-xl font-bold mt-8">
           We're going to use testnet with fake money
         </h2>
-        <p className="text-gray-400 mt-2 mb-8">blabla</p>
+        <p className="text-gray-400 mt-2 mb-8">
+          Interacting with web3 applications require ETH to pay for transactions
+          if you need to. For this tutorial, we're gonna use a test Blockchain
+          also called Testnet so you can test things for free!
+        </p>
         {switchNetwork && !isUserConnectedToCorrectChain ? (
           <div className="flex flex-col items-center">
-            <span className="mb-4">
+            {/* <span className="mb-4">
               your connect to the wrong chain, current chain:{" "}
               {chainData?.chain?.name}
-            </span>
-            <Button onClick={() => switchNetwork(4)}>switch to Rinkeby</Button>
+            </span> */}
+            <Button onClick={() => switchNetwork(4)}>Switch to Testnet</Button>
           </div>
         ) : (
-          <Link href="/onboard/mint">
-            <a>
-              <Button>go page mint</Button>
-            </a>
-          </Link>
+          <div className="flex justify-between">
+            <Link href="/">
+              <Button variant="tertiary">← Back</Button>
+            </Link>
+            <Link href="/onboard/mint">
+              <a>
+                <Button>Next</Button>
+              </a>
+            </Link>
+          </div>
         )}
       </div>
     </div>

@@ -16,7 +16,25 @@ const Card = () => {
         simple and fun way. In 5 minutes, you will understand the basics and
         mint your first NFT for free!
       </p>
-      <Link href="/onboard/blockchain">
+      <div className="w-full h-0.5 bg-white mt-8 mb-8 opacity-10"></div>
+      <div className="text-sm mb-8">
+        <p className="mb-4 font-bold">In this onboarding you will see:</p>
+        <div className="text-white">
+          <p>
+            <span className="text-indigo-600">▪︎</span> Get a wallet
+          </p>
+          <p>
+            <span className="text-indigo-600">▪︎</span> Connect to dApp
+          </p>
+          <p>
+            <span className="text-indigo-600">▪︎</span> Explore the blockchain
+          </p>
+          <p>
+            <span className="text-indigo-600">▪︎</span> Mint an NFT
+          </p>
+        </div>
+      </div>
+      <Link href="/onboard/metamask">
         <a>
           <Button>Get started</Button>
         </a>
@@ -33,11 +51,19 @@ const Text = () => {
         We are LOOP CLUB, a squad part of playgrounds.wtf a community building
         cool web3 stuff, you can follow us on Twitter
       </p>
+      <h2 className="text-sm font-bold mt-8">What's next?</h2>
+      <p className="mt-4 text-sm text-gray-500">
+        We are LOOP CLUB, a squad part of playgrounds.wtf a community building
+        cool web3 stuff, you can follow us on Twitter
+      </p>
       <div className="mt-8">
-        <h2 className="text-sm font-bold">Links</h2>
+        <h2 className="text-sm font-bold">Content from</h2>
         <ul className="mt-4 text-sm text-gray-500">
-          <li>Playgrounds.wtf</li>
-          <li>Twitter</li>
+          <li>
+            <a href="https://ethereum.org" target="_blank">
+              Ethereum.org
+            </a>
+          </li>
         </ul>
       </div>
     </div>

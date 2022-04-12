@@ -18,7 +18,7 @@ const WhatsBlockchain = () => {
           Metamask
         </p>
         <div className="mt-12">
-          <Link href="/onboard/wallet">
+          <Link href="/onboard/metamask">
             <a>
               <Button>Wallet</Button>
             </a>

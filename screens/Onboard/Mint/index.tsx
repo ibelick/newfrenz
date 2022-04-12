@@ -71,17 +71,54 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
   return (
     <div>
       {mintedTokenId ? (
+        // <div>
+        //   you can see you're NFT on{" "}
+        //   <a
+        //     href={`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}
+        //     target="_blank"
+        //     rel="noopener noreferrer"
+        //   >
+        //     opensea
+        //   </a>
+        // </div>
         <div>
-          you can see you're NFT on{" "}
-          <a
-            href={`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            opensea
-          </a>
+          <h2 className="text-sm font-bold">What is Etherscan?</h2>
+          <p className="mt-4 text-sm text-gray-500">
+            NFTs are tokens that we can use to represent ownership of unique
+            items. They let us tokenise things like art, collectibles, even real
+            estate. They can only have one official owner at a time and they're
+            secured by the Ethereum blockchain – no one can modify the record of
+            ownership or copy/paste a new NFT into existence.
+          </p>
         </div>
-      ) : null}
+      ) : (
+        <div>
+          <h2 className="text-sm font-bold">What is an NFT?</h2>
+          <p className="mt-4 text-sm text-gray-500">
+            NFTs are tokens that we can use to represent ownership of unique
+            items. They let us tokenise things like art, collectibles, even real
+            estate. They can only have one official owner at a time and they're
+            secured by the Ethereum blockchain – no one can modify the record of
+            ownership or copy/paste a new NFT into existence.
+          </p>
+          <h2 className="text-sm font-bold mt-8">
+            What does minting an NFT means?
+          </h2>
+          <p className="mt-4 text-sm text-gray-500">
+            An NFT can only have one owner at a time. Ownership is managed
+            through the uniqueID and metadata that no other token can replicate.
+            NFTs are minted through smart contracts that assign ownership and
+            manage the transferability of the NFT's.
+          </p>
+          <h2 className="text-sm font-bold mt-8">How to stay safe?</h2>
+          <p className="mt-4 text-sm text-gray-500">
+            Wallets require a bit of a different mindset when it comes to
+            safety. Financial freedom and the ability to access and use funds
+            anywhere comes with a bit of responsibility – there’s no customer
+            support in crypto.
+          </p>
+        </div>
+      )}
     </div>
   );
 };
@@ -111,8 +148,23 @@ const MintCard: React.FC<MintCardProps> = ({
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
-        <h2 className="text-xl font-bold mt-8">Mint your free nft</h2>
-        <p className="text-gray-400 mt-2 mb-8">blabla</p>
+        {!mintedTokenId ? (
+          <div>
+            <h2 className="text-xl font-bold mt-8">Mint your free NFT</h2>
+            <p className="text-gray-400 mt-2 mb-4">
+              Finally, let's mint a free NFT!
+            </p>
+          </div>
+        ) : (
+          <div>
+            <h2 className="text-xl font-bold mt-8">
+              Congrats! You just minted your first NFT
+            </h2>
+            <p className="text-gray-400 mt-2 mb-4">You now own an NFT!</p>
+          </div>
+        )}
+
+        <img className="m-auto mb-8" src="/frame.svg" alt="blabla" />
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="text-left">
             {!mintedTokenId ? (
