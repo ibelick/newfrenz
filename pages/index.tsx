@@ -9,10 +9,11 @@ import {
 } from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { chain } from "wagmi";
+import { useState } from "react";
 
-const CONTRACT_ADDRESS = "0x0fa2353C17280CF8De6e72A4db614a52b9FEa885";
+const CONTRACT_ADDRESS = "0x22647A442F2BB92272F00D4990b8B6C91d9120a4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
-const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com/";
+const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com";
 
 const Home: NextPage = () => {
   const [{ data: connectData, loading: isLoadingConnectData }, connect] =
@@ -32,20 +33,36 @@ const Home: NextPage = () => {
     { data: chainData, error, loading: isLoadingChainData },
     switchNetwork,
   ] = useNetwork();
+  const [mintedTokenId, setMintedTokenId] = useState<number | null>(null);
+  const [isMinting, setIsMinting] = useState<boolean>(false);
   const isUserConnectedToCorrectChain =
     chainData?.chain && chainData?.chain?.id === chain.rinkeby.id;
 
   const mint = async () => {
+    setIsMinting(true);
     try {
       console.log("Going to pop wallet now to pay gas...");
-      let nftTxn = await contract.makeAnEpicNFT();
+      let nftTxn = await contract.create();
       console.log("Mining...please wait.");
       await nftTxn.wait();
       console.log(
         `Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
       );
+      getTokenId();
+      setIsMinting(false);
     } catch (error) {
       console.error("error", error);
+      setIsMinting(false);
+    }
+  };
+
+  const getTokenId = async () => {
+    try {
+      contract.on("collectibleMinted", (from: string, tokenId: number) => {
+        setMintedTokenId(tokenId);
+      });
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -89,6 +106,12 @@ const Home: NextPage = () => {
             {chainData?.chain?.name}
           </span>
           <button onClick={() => switchNetwork(4)}>switch to Rinkeby</button>
+        </div>
+      ) : null}
+      {isMinting ? <span>minting loading...</span> : null}
+      {mintedTokenId ? (
+        <div>
+          <span>{`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}</span>
         </div>
       ) : null}
     </div>
