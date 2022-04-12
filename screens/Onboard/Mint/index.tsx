@@ -1,9 +1,11 @@
 import Button from "components/Button";
 import Layout from "components/Layout";
+import TextInput from "components/TextInput";
 import { useContract, useSigner } from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { useState } from "react";
 import Link from "next/Link";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const CONTRACT_ADDRESS = "0x6bD8256A271E3053c0872FB716BDefab09DF61B4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
@@ -19,11 +21,11 @@ const OnboardMint = () => {
   const [mintedTokenId, setMintedTokenId] = useState<number | null>(null);
   const [isMintingLoading, setIsMintingLoading] = useState<boolean>(false);
 
-  const mint = async () => {
+  const mint = async (name: string) => {
     setIsMintingLoading(true);
     try {
       console.log("Going to pop wallet now to pay gas...");
-      let nftTxn = await contract.create("wasssuuuu");
+      let nftTxn = await contract.create(name);
       console.log("Mining...please wait.");
       await nftTxn.wait();
       console.log(
@@ -85,35 +87,59 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
 };
 
 interface MintCardProps {
-  mint: () => Promise<void>;
+  mint: (name: string) => Promise<void>;
   isLoading: boolean;
   mintedTokenId?: number | null;
 }
+
+type FormValues = {
+  name: string;
+};
 
 const MintCard: React.FC<MintCardProps> = ({
   mint,
   isLoading,
   mintedTokenId,
 }) => {
+  const { register, handleSubmit } = useForm<FormValues>();
+
+  const onSubmit: SubmitHandler<FormValues> = (props) => {
+    mint(props.name);
+  };
+
   return (
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
         <h2 className="text-xl font-bold mt-8">Mint your free nft</h2>
         <p className="text-gray-400 mt-2 mb-8">blabla</p>
-        <div className="mt-12">
-          {!mintedTokenId ? (
-            <Button isLoading={isLoading} onClick={mint}>
-              Mint
-            </Button>
-          ) : (
-            <Link href="/onboard/congrats">
-              <a>
-                <Button>next</Button>
-              </a>
-            </Link>
-          )}
-        </div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="text-left">
+            {!mintedTokenId ? (
+              <TextInput
+                id="name"
+                placeholder={`John Doe`}
+                register={register}
+                required
+                label="Enter your name: (max 16 char.)"
+                maxlength={16}
+              />
+            ) : null}
+          </div>
+          <div className="mt-12">
+            {!mintedTokenId ? (
+              <Button type="submit" isLoading={isLoading}>
+                Mint
+              </Button>
+            ) : (
+              <Link href="/onboard/congrats">
+                <a>
+                  <Button type="button">next</Button>
+                </a>
+              </Link>
+            )}
+          </div>
+        </form>
       </div>
     </div>
   );
