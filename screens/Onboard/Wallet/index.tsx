@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import Layout from "components/Layout";
-import Link from "next/link";
+import Link from "next/Link";
 import { useConnect, useAccount, Connector, ConnectorData } from "wagmi";
 
 const OnboardWallet = () => {

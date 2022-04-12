@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import Layout from "components/Layout";
-import Link from "next/link";
+import Link from "next/Link";
 
 const OnboardBlockchain = () => {
   return <Layout card={<WhatsBlockchain />} text={<WhatsBlockchainText />} />;

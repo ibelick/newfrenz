@@ -1,3 +1,5 @@
+import Link from "next/Link";
+
 interface LayoutProps {
   card: JSX.Element;
   text: JSX.Element;
@@ -10,7 +12,11 @@ const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
       <div className="h-1 w-48 bg-indigo-600 absolute top-0"></div>
       <div className="lg:w-9/12 m-auto lg:px-0 px-4">
         <header className="flex items-center justify-between">
-          <div>→ ONBOARDING</div>
+          <div>
+            <Link href="/">
+              <a>→ ONBOARDING</a>
+            </Link>
+          </div>
           <div>
             <span>Wallet connected</span>
           </div>
