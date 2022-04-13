@@ -23,9 +23,9 @@ const WhatsMetamask2 = () => {
           height="315"
           src="https://www.youtube.com/embed/GNPz-Dv5BjM?controls=0&amp;start=20"
           title="YouTube video player"
-          frameborder="0"
+          frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
+          allowFullScreen
         ></iframe>
         <div className="mt-12">
           <Link href="/onboard/wallet">

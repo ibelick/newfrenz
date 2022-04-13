@@ -6,19 +6,21 @@ import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { useState } from "react";
 import Link from "next/Link";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Spinner from "components/Spinner";
 
 const CONTRACT_ADDRESS = "0x6bD8256A271E3053c0872FB716BDefab09DF61B4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
 const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com";
 
 const OnboardMint = () => {
-  const [{ data: signerData }, getSigner] = useSigner();
+  const [{ data: signerData }] = useSigner();
   const contract = useContract({
     addressOrName: CONTRACT_ADDRESS,
     contractInterface: OnboardingCollectible.abi,
     signerOrProvider: signerData,
   });
   const [mintedTokenId, setMintedTokenId] = useState<number | null>(null);
+  const [nftTxnHash, setNftTxnHash] = useState<string | null>(null);
   const [isMintingLoading, setIsMintingLoading] = useState<boolean>(false);
 
   const mint = async (name: string) => {
@@ -28,6 +30,7 @@ const OnboardMint = () => {
       let nftTxn = await contract.create(name);
       console.log("Mining...please wait.");
       await nftTxn.wait();
+      setNftTxnHash(nftTxn.hash);
       console.log(
         `Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
       );
@@ -56,6 +59,7 @@ const OnboardMint = () => {
           mint={mint}
           isLoading={isMintingLoading}
           mintedTokenId={mintedTokenId}
+          nftTxnHash={nftTxnHash}
         />
       }
       text={<WalletText mintedTokenId={mintedTokenId} />}
@@ -71,16 +75,6 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
   return (
     <div>
       {mintedTokenId ? (
-        // <div>
-        //   you can see you're NFT on{" "}
-        //   <a
-        //     href={`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}
-        //     target="_blank"
-        //     rel="noopener noreferrer"
-        //   >
-        //     opensea
-        //   </a>
-        // </div>
         <div>
           <h2 className="text-sm font-bold">What is Etherscan?</h2>
           <p className="mt-4 text-sm text-gray-500">
@@ -127,6 +121,7 @@ interface MintCardProps {
   mint: (name: string) => Promise<void>;
   isLoading: boolean;
   mintedTokenId?: number | null;
+  nftTxnHash?: string | null;
 }
 
 type FormValues = {
@@ -137,12 +132,42 @@ const MintCard: React.FC<MintCardProps> = ({
   mint,
   isLoading,
   mintedTokenId,
+  nftTxnHash,
 }) => {
   const { register, handleSubmit } = useForm<FormValues>();
 
   const onSubmit: SubmitHandler<FormValues> = (props) => {
     mint(props.name);
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center flex-col">
+        <Spinner size="xl" />
+        <div className="text-center mt-4">
+          <h2 className="text-xl mb-4">NFT being minted...</h2>
+          <p className="mb-2">
+            You just sent a transaction to the blockchain and your NFT is
+            currently being minted!
+          </p>
+          {nftTxnHash ? (
+            <a
+              href={`https://rinkeby.etherscan.io/tx/${nftTxnHash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >{`Open transaction on Etherscan >`}</a>
+          ) : null}
+          {mintedTokenId ? (
+            <a
+              href={`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >{`View your NFT on OpenSea >`}</a>
+          ) : null}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div>
@@ -156,15 +181,31 @@ const MintCard: React.FC<MintCardProps> = ({
             </p>
           </div>
         ) : (
-          <div>
+          <div className="flex flex-col">
             <h2 className="text-xl font-bold mt-8">
               Congrats! You just minted your first NFT
             </h2>
             <p className="text-gray-400 mt-2 mb-4">You now own an NFT!</p>
+            {nftTxnHash ? (
+              <a
+                href={`https://rinkeby.etherscan.io/tx/${nftTxnHash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mb-2"
+              >{`Open transaction on Etherscan >`}</a>
+            ) : null}
+            {mintedTokenId ? (
+              <a
+                href={`${BASE_URL_OPENSEA_TESTNET}/assets/${CONTRACT_ADDRESS}/${mintedTokenId}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{`View your NFT on OpenSea >`}</a>
+            ) : null}
           </div>
         )}
-
-        <img className="m-auto mb-8" src="/frame.svg" alt="blabla" />
+        {!mintedTokenId ? (
+          <img className="m-auto mb-8" src="/frame.svg" alt="blabla" />
+        ) : null}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="text-left">
             {!mintedTokenId ? (
@@ -174,7 +215,7 @@ const MintCard: React.FC<MintCardProps> = ({
                 register={register}
                 required
                 label="Enter your name: (max 16 char.)"
-                maxlength={16}
+                maxLength={16}
               />
             ) : null}
           </div>

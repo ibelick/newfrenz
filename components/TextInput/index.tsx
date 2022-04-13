@@ -4,7 +4,7 @@ interface TextInputProps {
   required?: boolean;
   placeholder?: string;
   id?: string;
-  maxlength?: number;
+  maxLength?: number;
 }
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -13,7 +13,7 @@ const TextInput: React.FC<TextInputProps> = ({
   required,
   placeholder,
   id,
-  maxlength,
+  maxLength,
 }) => {
   return (
     <>
@@ -28,7 +28,7 @@ const TextInput: React.FC<TextInputProps> = ({
         className="focus:shadow-outline w-full appearance-none rounded bg-gray-100 py-4 px-4 leading-tight text-gray-700 placeholder:text-gray-400 focus:outline-none"
         type="text"
         placeholder={placeholder}
-        maxlength={maxlength}
+        maxLength={maxLength}
         {...register(id, { required })}
       />
     </>

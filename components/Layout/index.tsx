@@ -37,7 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
             )}
           </div>
         </header>
-        <div className="mt-24 lg:flex ">
+        <div className="mt-24 lg:flex items-start">
           <div className="bg-black lg:w-3/5 rounded-xl py-8 px-8 lg:px-12 border border-gray-800 shadow-2xl ">
             {isLoading ? null : card}
           </div>
