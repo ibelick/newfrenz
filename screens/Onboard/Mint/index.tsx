@@ -251,7 +251,7 @@ const MintCard: React.FC<MintCardProps> = ({
             ) : (
               <Link href="/onboard/congrats">
                 <a>
-                  <Button type="button">NFT, what's is it?</Button>
+                  <Button type="button">What did I mint?</Button>
                 </a>
               </Link>
             )}

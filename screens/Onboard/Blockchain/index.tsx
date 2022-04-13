@@ -11,11 +11,10 @@ const WhatsBlockchain = () => {
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
-        <h2 className="text-xl font-bold mt-8">Whats blockchain</h2>
+        <h2 className="text-xl font-bold mt-8">What's blockchain</h2>
         <p className="text-gray-400 mt-2 mb-8">
-          In order to follow this interactive onboarding you will need to create
-          a Metamask wallet. It only takes a few seconds. First let’s download
-          Metamask
+          A blockchain is a public database that is updated and shared across
+          many computers in a network.
         </p>
         <div className="mt-12 flex justify-between">
           <Link href="/">
