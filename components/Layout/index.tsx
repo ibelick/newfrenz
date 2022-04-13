@@ -1,19 +1,16 @@
 import Link from "next/Link";
-import { useConnect, useAccount, Connector, ConnectorData } from "wagmi";
+import { useConnect, useAccount } from "wagmi";
 
 interface LayoutProps {
   card: JSX.Element;
   text: JSX.Element;
-  isLoading?: boolean;
 }
 
-const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
-  const [{ data: connectData, loading: isLoadingConnectData }, connect] =
-    useConnect();
-  const [{ data: accountData, loading: isLoadingAccountData }, disconnect] =
-    useAccount({
-      fetchEns: true,
-    });
+const Layout: React.FC<LayoutProps> = ({ card, text }) => {
+  const [{ data: connectData }, connect] = useConnect();
+  const [{ data: accountData }, disconnect] = useAccount({
+    fetchEns: true,
+  });
   const isUserNotConnected = Boolean(!connectData.connected && !accountData);
 
   return (
@@ -27,9 +24,7 @@ const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
             </Link>
           </div>
           <div className="text-sm">
-            {isUserNotConnected ? (
-              <span></span>
-            ) : (
+            {isUserNotConnected ? null : (
               <div className="flex items-center">
                 <div className="h-2 mr-2 w-2 bg-green-500  border-green-300 rounded-full"></div>
                 Wallet connected
@@ -39,11 +34,9 @@ const Layout: React.FC<LayoutProps> = ({ isLoading, card, text }) => {
         </header>
         <div className="mt-24 lg:flex items-start">
           <div className="bg-black lg:w-3/5 rounded-xl py-8 px-8 lg:px-12 border border-gray-800 shadow-2xl ">
-            {isLoading ? null : card}
+            {card}
           </div>
-          <div className="lg:ml-12 py-8 lg:w-2/5">
-            {isLoading ? null : text}
-          </div>
+          <div className="lg:ml-12 py-8 lg:w-2/5">{text}</div>
         </div>
       </div>
     </div>
