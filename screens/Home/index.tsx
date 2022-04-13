@@ -34,7 +34,7 @@ const Card = () => {
           </p>
         </div>
       </div>
-      <Link href="/onboard/metamask">
+      <Link href="/onboard/blockchain">
         <a>
           <Button>Get started</Button>
         </a>

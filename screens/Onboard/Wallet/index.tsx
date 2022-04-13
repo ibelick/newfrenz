@@ -118,15 +118,15 @@ const WalletConnected: React.FC<WalletConnectedProps> = ({ address }) => {
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
-        <h2 className="text-xl font-bold mt-8">You're now connected!</h2>
+        <h2 className="text-xl font-bold mt-8">You're connected!</h2>
         <p className="text-gray-400 mt-2 mb-8">
-          Congrats! Your wallet is now connected to this web3 onboarding, that's
+          Congrats! Your wallet is connected to this web3 onboarding, that's
           where the magic begins!
         </p>
         <p>Your account is</p>
-        <p className="bg-gray-900 text-gray-400 text-xl mt-2 mb-8 px-8 py-4 rounded-xl">
+        <div className="bg-gray-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
           {address}
-        </p>
+        </div>
         <div className="flex justify-between">
           <Link href="/">
             <Button variant="tertiary">← Back</Button>

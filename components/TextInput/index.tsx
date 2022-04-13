@@ -25,7 +25,7 @@ const TextInput: React.FC<TextInputProps> = ({
       </label>
       <input
         id={id}
-        className="focus:shadow-outline w-full appearance-none rounded bg-gray-100 py-4 px-4 leading-tight text-gray-700 placeholder:text-gray-400 focus:outline-none"
+        className="focus:shadow-outline w-full appearance-none rounded bg-gray-900 py-4 px-4 leading-tight text-gray-300 placeholder:text-gray-400 focus:outline-none"
         type="text"
         placeholder={placeholder}
         maxLength={maxLength}

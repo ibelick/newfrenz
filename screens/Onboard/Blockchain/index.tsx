@@ -17,10 +17,13 @@ const WhatsBlockchain = () => {
           a Metamask wallet. It only takes a few seconds. First let’s download
           Metamask
         </p>
-        <div className="mt-12">
-          <Link href="/onboard/metamask">
+        <div className="mt-12 flex justify-between">
+          <Link href="/">
+            <Button variant="tertiary">← Back</Button>
+          </Link>
+          <Link href="/onboard/ethereum-1">
             <a>
-              <Button>Wallet</Button>
+              <Button>Next</Button>
             </a>
           </Link>
         </div>

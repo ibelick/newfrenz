@@ -176,9 +176,6 @@ const MintCard: React.FC<MintCardProps> = ({
         {!mintedTokenId ? (
           <div>
             <h2 className="text-xl font-bold mt-8">Mint your free NFT</h2>
-            <p className="text-gray-400 mt-2 mb-4">
-              Finally, let's mint a free NFT!
-            </p>
           </div>
         ) : (
           <div className="flex flex-col">
@@ -222,7 +219,7 @@ const MintCard: React.FC<MintCardProps> = ({
           <div className="mt-12">
             {!mintedTokenId ? (
               <Button type="submit" isLoading={isLoading}>
-                Mint
+                Mint NFT
               </Button>
             ) : (
               <Link href="/onboard/congrats">

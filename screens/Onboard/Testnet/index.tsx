@@ -4,30 +4,28 @@ import Link from "next/Link";
 import { useNetwork } from "wagmi";
 import { chain } from "wagmi";
 
-const OnboardWallet = () => {
-  return <Layout card={<NoWallet />} text={<WalletText />} />;
+const OnboardTestnet = () => {
+  return <Layout card={<NoTestnet />} text={<TestnetText />} />;
 };
 
-const WalletText = () => {
+const TestnetText = () => {
   return (
     <div>
-      <h2 className="text-sm font-bold">What is an Ethereum account?</h2>
-      <p className="mt-4 text-sm text-gray-500">
-        An Ethereum account is an entity that can send transactions and has a
-        balance. An Ethereum account has an Ethereum address, like an inbox has
-        an email address. You can use this to send funds to an account.
+      <p className="mb-4 text-sm text-gray-300">
+        Ethereum test networks are parallel chains, nearly identical to the
+        public version of the Ethereum blockchain (usually referred to as the
+        Ethereum Mainnet).
       </p>
-      <h2 className="text-sm font-bold mt-8">How to stay safe?</h2>
-      <p className="mt-4 text-sm text-gray-500">
-        Wallets require a bit of a different mindset when it comes to safety.
-        Financial freedom and the ability to access and use funds anywhere comes
-        with a bit of responsibility – there’s no customer support in crypto.
+      <h2 className="text-sm font-bold">What is Ethereum Testnets?</h2>
+      <p className="mt-4 text-sm text-gray-300">
+        You can see a test network as a public beta of the Ethereum protocol,
+        where you can test different types of transactions.
       </p>
     </div>
   );
 };
 
-const NoWallet = () => {
+const NoTestnet = () => {
   const [{ data: chainData }, switchNetwork] = useNetwork();
   const isUserConnectedToCorrectChain =
     chainData?.chain && chainData?.chain?.id === chain.rinkeby.id;
@@ -37,7 +35,7 @@ const NoWallet = () => {
       <div className="text-center">
         <span className="text-3xl">⚉</span>
         <h2 className="text-xl font-bold mt-8">
-          We're going to use testnet with fake money
+          We're going to use fake money
         </h2>
         <p className="text-gray-400 mt-2 mb-8">
           Interacting with web3 applications require ETH to pay for transactions
@@ -46,27 +44,28 @@ const NoWallet = () => {
         </p>
         {switchNetwork && !isUserConnectedToCorrectChain ? (
           <div className="flex flex-col items-center">
-            {/* <span className="mb-4">
-              your connect to the wrong chain, current chain:{" "}
-              {chainData?.chain?.name}
-            </span> */}
             <Button onClick={() => switchNetwork(4)}>Switch to Testnet</Button>
           </div>
         ) : (
-          <div className="flex justify-between">
-            <Link href="/">
-              <Button variant="tertiary">← Back</Button>
-            </Link>
-            <Link href="/onboard/mint">
-              <a>
-                <Button>Next</Button>
-              </a>
-            </Link>
-          </div>
+          <>
+            <p className="mb-6">
+              Your connect to the {chainData?.chain?.name} Testnet! ✨
+            </p>
+            <div className="flex justify-between">
+              <Link href="/onboard/wallet">
+                <Button variant="tertiary">← Back</Button>
+              </Link>
+              <Link href="/onboard/mint">
+                <a>
+                  <Button>Let's get fake ETH</Button>
+                </a>
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </div>
   );
 };
 
-export default OnboardWallet;
+export default OnboardTestnet;
