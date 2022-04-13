@@ -18,7 +18,7 @@ const NFTCard = () => {
           <Link href="/onboard/nft">
             <Button variant="tertiary">← Back</Button>
           </Link>
-          <Link href="/onboard/ethereum-1">
+          <Link href="/onboard/congrats">
             <a>
               <Button>Next</Button>
             </a>
@@ -30,13 +30,13 @@ const NFTCard = () => {
 };
 
 const NFTText = () => {
-  const nftCollection = useNfts("0x6bd8256a271e3053c0872fb716bdefab09df61b4");
+  const { collection } = useNfts("0x6bd8256a271e3053c0872fb716bdefab09df61b4");
 
   return (
     <div>
       <h2 className="text-sm font-bold mb-2">Your new frens</h2>
       <div className="flex flex-wrap gap-4">
-        {nftCollection?.collection?.assets.slice(0, 10).map((asset: any) => {
+        {collection?.assets.slice(0, 10).map((asset: any) => {
           return (
             <div key={asset.id}>
               <img src={asset.image_url} alt={asset.id} className="w-20" />

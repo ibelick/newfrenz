@@ -1,16 +1,37 @@
 import Layout from "components/Layout";
 import Button from "components/Button";
 import Link from "next/Link";
+import useNft from "hooks/useNft";
 
 const OnboardEthereum2 = () => {
   return <Layout card={<EthereumCard />} text={<EthereumText />} />;
 };
 
 const EthereumCard = () => {
+  const { nft, isLoading } = useNft(
+    "0xd871eeb105a748d2578ecf9a8e3ebba83396dab4",
+    "3"
+  );
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <div>
-      <div className="text-center">
-        ETHEREUM ILLU NFT WITH SOURCE
+      <div className="text-center flex items-center flex-col">
+        <img src={nft.image_url} alt={nft.name} />
+        <p className="mt-2 text-gray-400">
+          {nft.name}.{" "}
+          <a
+            href="https://opensea.io/assets/0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0/33191"
+            target="_blank"
+            className="underline"
+          >
+            Minted as an NFT
+          </a>
+          .
+        </p>
         <div className="mt-12 flex justify-between">
           <Link href="/onboard/ethereum-1">
             <Button variant="tertiary">← Back</Button>

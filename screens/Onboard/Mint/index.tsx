@@ -176,7 +176,7 @@ const MintCard: React.FC<MintCardProps> = ({
             You just sent a transaction to the blockchain and your NFT is
             currently being minted!
           </p>
-          <p>This transaction may take some time.</p>
+          <p className="mb-2">This transaction may take some time.</p>
           {nftTxnHash ? (
             <a
               href={`https://rinkeby.etherscan.io/tx/${nftTxnHash}`}
@@ -249,7 +249,7 @@ const MintCard: React.FC<MintCardProps> = ({
                 Mint NFT
               </Button>
             ) : (
-              <Link href="/onboard/congrats">
+              <Link href="/onboard/nft">
                 <a>
                   <Button type="button">What did I mint?</Button>
                 </a>

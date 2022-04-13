@@ -1,6 +1,7 @@
 import Button from "components/Button";
 import Layout from "components/Layout";
 import Link from "next/Link";
+import useNft from "hooks/useNft";
 
 const OnboardBlockchain = () => {
   return <Layout card={<WhatsBlockchain />} text={<WhatsBlockchainText />} />;
@@ -32,9 +33,29 @@ const WhatsBlockchain = () => {
 };
 
 const WhatsBlockchainText = () => {
+  const { nft, isLoading } = useNft(
+    "0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0",
+    "33191"
+  );
+
+  if (isLoading) {
+    return null;
+  }
+
   return (
     <div>
-      <p>hey</p>
+      <img src={nft.image_url} alt={nft.name} />
+      <p className="mt-2 text-gray-400">
+        {nft.name} by {nft.creator.user.username}.{" "}
+        <a
+          href="https://opensea.io/assets/0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0/33191"
+          target="_blank"
+          className="underline"
+        >
+          Minted as an NFT
+        </a>
+        .
+      </p>
     </div>
   );
 };

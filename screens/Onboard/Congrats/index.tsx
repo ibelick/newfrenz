@@ -1,5 +1,6 @@
 import Layout from "components/Layout";
 import Button from "components/Button";
+import Link from "next/Link";
 
 const OnboardCongrats = () => {
   return <Layout card={<CongratsCard />} text={<CongratsText />} />;
@@ -33,9 +34,12 @@ const CongratsCard = () => {
               <span className="text-indigo-600">▪︎</span> Mint an NFT
             </p>
           </div>
-          <div></div>
-
-          <Button>Share on Twitter</Button>
+          <div className="flex flex-col items-center">
+            <Button>Share on Twitter</Button>
+            <Link href="/whatsnext">
+              <a className="mt-6 underline">What's next?</a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
