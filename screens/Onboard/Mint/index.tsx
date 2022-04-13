@@ -22,31 +22,39 @@ const OnboardMint = () => {
   const [mintedTokenId, setMintedTokenId] = useState<number | null>(null);
   const [nftTxnHash, setNftTxnHash] = useState<string | null>(null);
   const [isMintingLoading, setIsMintingLoading] = useState<boolean>(false);
+  const [isApprovedWalletLoading, setIsApprovedWalletLoading] =
+    useState<boolean>(false);
 
   const mint = async (name: string) => {
-    setIsMintingLoading(true);
+    setIsApprovedWalletLoading(true);
     try {
       console.log("Going to pop wallet now to pay gas...");
       let nftTxn = await contract.create(name);
+      setIsApprovedWalletLoading(false);
+      setIsMintingLoading(true);
       console.log("Mining...please wait.");
       await nftTxn.wait();
       setNftTxnHash(nftTxn.hash);
       console.log(
         `Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`
       );
-      getTokenId();
+      await getTokenId();
     } catch (error) {
       console.error("error", error);
+      setIsApprovedWalletLoading(false);
       setIsMintingLoading(false);
     }
   };
 
   const getTokenId = async () => {
     try {
-      contract.on("collectibleMinted", (from: string, tokenId: number) => {
-        setMintedTokenId(tokenId);
-        setIsMintingLoading(false);
-      });
+      await contract.on(
+        "collectibleMinted",
+        (from: string, tokenId: number) => {
+          setMintedTokenId(tokenId);
+          setIsMintingLoading(false);
+        }
+      );
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +65,8 @@ const OnboardMint = () => {
       card={
         <MintCard
           mint={mint}
-          isLoading={isMintingLoading}
+          isMintingLoading={isMintingLoading}
+          isApprovedWalletLoading={isApprovedWalletLoading}
           mintedTokenId={mintedTokenId}
           nftTxnHash={nftTxnHash}
         />
@@ -111,6 +120,7 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
             anywhere comes with a bit of responsibility – there’s no customer
             support in crypto.
           </p>
+          <h2 className="text-sm font-bold mt-8">What's gas fees</h2>
         </div>
       )}
     </div>
@@ -119,7 +129,8 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
 
 interface MintCardProps {
   mint: (name: string) => Promise<void>;
-  isLoading: boolean;
+  isMintingLoading: boolean;
+  isApprovedWalletLoading: boolean;
   mintedTokenId?: number | null;
   nftTxnHash?: string | null;
 }
@@ -130,7 +141,8 @@ type FormValues = {
 
 const MintCard: React.FC<MintCardProps> = ({
   mint,
-  isLoading,
+  isMintingLoading,
+  isApprovedWalletLoading,
   mintedTokenId,
   nftTxnHash,
 }) => {
@@ -140,7 +152,21 @@ const MintCard: React.FC<MintCardProps> = ({
     mint(props.name);
   };
 
-  if (isLoading) {
+  if (isApprovedWalletLoading) {
+    return (
+      <div className="flex items-center flex-col">
+        <Spinner size="xl" />
+        <div className="text-center mt-4">
+          <h2 className="text-xl mb-4">Confirm on Metamask to continue</h2>
+          <p className="mb-2">
+            You're going to pay testnet gas fees to mint your NFT.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (isMintingLoading) {
     return (
       <div className="flex items-center flex-col">
         <Spinner size="xl" />
@@ -150,6 +176,7 @@ const MintCard: React.FC<MintCardProps> = ({
             You just sent a transaction to the blockchain and your NFT is
             currently being minted!
           </p>
+          <p>This transaction may take some time.</p>
           {nftTxnHash ? (
             <a
               href={`https://rinkeby.etherscan.io/tx/${nftTxnHash}`}
@@ -201,7 +228,7 @@ const MintCard: React.FC<MintCardProps> = ({
           </div>
         )}
         {!mintedTokenId ? (
-          <img className="m-auto mb-8" src="/frame.svg" alt="blabla" />
+          <img className="m-auto mb-8" src="/frame.svg" alt="nft" />
         ) : null}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="text-left">
@@ -216,15 +243,15 @@ const MintCard: React.FC<MintCardProps> = ({
               />
             ) : null}
           </div>
-          <div className="mt-12">
+          <div className="mt-8">
             {!mintedTokenId ? (
-              <Button type="submit" isLoading={isLoading}>
+              <Button type="submit" isLoading={isMintingLoading}>
                 Mint NFT
               </Button>
             ) : (
               <Link href="/onboard/congrats">
                 <a>
-                  <Button type="button">next</Button>
+                  <Button type="button">NFT, what's is it?</Button>
                 </a>
               </Link>
             )}
