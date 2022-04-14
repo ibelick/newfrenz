@@ -65,7 +65,9 @@ const TestnetCard = () => {
             </p>
             <div className="flex justify-between">
               <Link href="/onboard/wallet">
-                <Button variant="tertiary">← Back</Button>
+                <a>
+                  <Button variant="tertiary">← Back</Button>
+                </a>
               </Link>
               <Link href="/onboard/faucet">
                 <a>

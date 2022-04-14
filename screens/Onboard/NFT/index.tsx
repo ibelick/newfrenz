@@ -17,7 +17,9 @@ const NFTCard = () => {
         <p className="text-gray-400 mt-2 mb-8"></p>
         <div className="mt-12 flex justify-between">
           <Link href="/onboard/nft">
-            <Button variant="tertiary">← Back</Button>
+            <a>
+              <Button variant="tertiary">← Back</Button>
+            </a>
           </Link>
           <Link href="/onboard/congrats">
             <a>

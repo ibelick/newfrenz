@@ -19,8 +19,10 @@ const LayoutOnboard: React.FC<LayoutOnboardProps> = ({
         <div className="lg:flex items-start">
           <div className="flex flex-col w-full lg:w-3/5 ">
             {loadingMsg ? (
-              <div className="bg-black p-2 rounded mb-4 opacity-50 flex">
-                <Spinner />
+              <div className="bg-black bg-opacity-40 p-2 rounded mb-4 flex items-center relative justify-center">
+                <div className="absolute left-4">
+                  <Spinner />
+                </div>
                 {loadingMsg}
               </div>
             ) : null}

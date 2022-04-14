@@ -47,7 +47,9 @@ const EthereumCard = () => {
       </div>
       <div className="mt-12 flex justify-between">
         <Link href="/onboard/ethereum-2">
-          <Button variant="tertiary">← Back</Button>
+          <a>
+            <Button variant="tertiary">← Back</Button>
+          </a>
         </Link>
         <Link href="/onboard/ethereum-4">
           <a>
