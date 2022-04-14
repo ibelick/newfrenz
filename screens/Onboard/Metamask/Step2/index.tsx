@@ -1,7 +1,6 @@
 import Button from "components/Button";
 import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
-import metamask1 from "./metamask1.png";
 
 const OnboardMetamask2 = () => {
   return (

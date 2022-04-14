@@ -7,8 +7,8 @@ import { useState } from "react";
 import Link from "next/Link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "components/Spinner";
+import { CONTRACT_ADDRESS } from "utils/contract";
 
-const CONTRACT_ADDRESS = "0x6bD8256A271E3053c0872FB716BDefab09DF61B4";
 const BASE_URL_OPENSEA_TESTNET = "https://testnets.opensea.io";
 const BASE_URL_RARIBLE_TESTNET = "https://rinkeby.rarible.com";
 
@@ -62,6 +62,9 @@ const OnboardMint = () => {
 
   return (
     <LayoutOnboard
+      loadingMsg={
+        isApprovedWalletLoading ? "Confirm on Metamask to continue" : null
+      }
       card={
         <MintCard
           mint={mint}
@@ -152,21 +155,19 @@ const MintCard: React.FC<MintCardProps> = ({
     mint(props.name);
   };
 
-  if (isApprovedWalletLoading) {
-    return (
-      <div className="flex items-center flex-col">
-        <Spinner size="xl" />
-        <div className="text-center mt-4">
-          <h2 className="text-xl mb-4 font-bold">
-            Confirm on Metamask to continue
-          </h2>
-          <p className="mb-2">
-            You're going to pay testnet gas fees to mint your NFT.
-          </p>
-        </div>
-      </div>
-    );
-  }
+  // if (isApprovedWalletLoading) {
+  //   return (
+  //     <div className="flex items-center flex-col">
+  //       <Spinner size="xl" />
+  //       <div className="text-center mt-4">
+  //         <h2 className="text-xl mb-4">Confirm on Metamask to continue</h2>
+  //         <p className="mb-2">
+  //           You're going to pay testnet gas fees to mint your NFT.
+  //         </p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   if (isMintingLoading) {
     return (
@@ -247,7 +248,10 @@ const MintCard: React.FC<MintCardProps> = ({
           </div>
           <div className="mt-8">
             {!mintedTokenId ? (
-              <Button type="submit" isLoading={isMintingLoading}>
+              <Button
+                type="submit"
+                isLoading={isApprovedWalletLoading || isMintingLoading}
+              >
                 Mint NFT
               </Button>
             ) : (

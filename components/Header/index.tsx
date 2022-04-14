@@ -9,7 +9,7 @@ const Header = () => {
   const isUserNotConnected = Boolean(!connectData.connected && !accountData);
 
   return (
-    <header className="flex items-center justify-between">
+    <header className="flex items-center justify-between mb-24">
       <div>
         <Link href="/">
           <a>→ ONBOARDING</a>

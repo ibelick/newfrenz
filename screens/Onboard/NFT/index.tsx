@@ -2,6 +2,7 @@ import Button from "components/Button";
 import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import useNfts from "hooks/useNfts";
+import { CONTRACT_ADDRESS } from "utils/contract";
 
 const OnboardNFT = () => {
   return <LayoutOnboard card={<NFTCard />} text={<NFTText />} />;
@@ -30,7 +31,7 @@ const NFTCard = () => {
 };
 
 const NFTText = () => {
-  const { collection } = useNfts("0x6bd8256a271e3053c0872fb716bdefab09df61b4");
+  const { collection } = useNfts(CONTRACT_ADDRESS);
 
   return (
     <div>
