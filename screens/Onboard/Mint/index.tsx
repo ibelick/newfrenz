@@ -90,11 +90,16 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
         <div>
           <h2 className="text-sm font-bold">What is Etherscan?</h2>
           <p className="mt-4 text-sm text-gray-400">
-            NFTs are tokens that we can use to represent ownership of unique
-            items. They let us tokenise things like art, collectibles, even real
-            estate. They can only have one official owner at a time and they're
-            secured by the Ethereum blockchain – no one can modify the record of
-            ownership or copy/paste a new NFT into existence.
+            Etherscan is known as Ethereum’s leading “block explorer”. It is
+            essentially a search engine that lets users look up, confirm and
+            validate transactions on the Ethereum decentralised smart contracts
+            platform.
+          </p>
+          <h2 className="text-sm font-bold mt-8">What is Opensea?</h2>
+          <p className="mt-4 text-sm text-gray-400">
+            The world’s first and largest digital marketplace for crypto
+            collectibles and non-fungible tokens (NFTs). Buy, sell, and discover
+            exclusive digital items.
           </p>
         </div>
       ) : (
@@ -197,6 +202,7 @@ const MintCard: React.FC<MintCardProps> = ({
           </div>
         ) : (
           <div className="flex flex-col">
+            <img src="/checked.svg" className="w-20 m-auto mt-12 mb-4" />
             <h2 className="text-xl font-bold mt-8">
               Congrats! You just minted your first NFT
             </h2>
