@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import LayoutOnboard from "components/LayoutOnboard";
-import Link from "next/Link";
+import Link from "next/link";
 import useNfts from "hooks/useNfts";
 import { CONTRACT_ADDRESS } from "utils/contract";
 

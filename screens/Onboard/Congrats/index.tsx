@@ -1,6 +1,6 @@
 import LayoutOnboard from "components/LayoutOnboard";
 import Button from "components/Button";
-import Link from "next/Link";
+import Link from "next/link";
 
 const OnboardCongrats = () => {
   return <LayoutOnboard card={<CongratsCard />} text={<CongratsText />} />;

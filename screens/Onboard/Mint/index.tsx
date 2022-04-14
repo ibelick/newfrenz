@@ -4,7 +4,7 @@ import TextInput from "components/TextInput";
 import { useContract, useSigner } from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
 import { useState } from "react";
-import Link from "next/Link";
+import Link from "next/link";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Spinner from "components/Spinner";
 import { CONTRACT_ADDRESS } from "utils/contract";

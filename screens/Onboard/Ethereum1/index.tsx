@@ -1,7 +1,7 @@
 import LayoutCard from "components/LayoutCard";
 import Button from "components/Button";
 import ImageNFT from "components/ImageNFT";
-import Link from "next/Link";
+import Link from "next/link";
 
 const OnboardEthereum1 = () => {
   return <LayoutCard card={<EthereumCard />} />;

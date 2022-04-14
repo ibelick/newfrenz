@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import LayoutCard from "components/LayoutCard";
-import Link from "next/Link";
+import Link from "next/link";
 
 const Home = () => {
   return <LayoutCard card={<Card />} />;

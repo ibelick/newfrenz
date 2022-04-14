@@ -1,7 +1,7 @@
 import Button from "components/Button";
 import LayoutCard from "components/LayoutCard";
 import ImageNFT from "components/ImageNFT";
-import Link from "next/Link";
+import Link from "next/link";
 
 const OnboardBlockchain = () => {
   return <LayoutCard card={<WhatsBlockchain />} />;

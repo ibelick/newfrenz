@@ -1,6 +1,6 @@
 import Button from "components/Button";
 import LayoutOnboard from "components/LayoutOnboard";
-import Link from "next/Link";
+import Link from "next/link";
 import { useNetwork } from "wagmi";
 import { chain } from "wagmi";
 
