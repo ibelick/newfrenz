@@ -7,6 +7,7 @@ const OnboardCongrats = () => {
 };
 
 const CongratsCard = () => {
+  const tweet = `url=https://newfrenz.xyz - onboard your frenz in web3 with a simple link ✨`;
   return (
     <div>
       <div className="text-center">
@@ -35,7 +36,13 @@ const CongratsCard = () => {
             </p>
           </div>
           <div className="flex flex-col items-center">
-            <Button>Share on Twitter</Button>
+            <a
+              href={`https://twitter.com/intent/tweet?${tweet}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button>Share on Twitter</Button>
+            </a>
             <Link href="/whatsnext">
               <a className="mt-6 underline">What's next?</a>
             </Link>

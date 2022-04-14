@@ -128,7 +128,6 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
             anywhere comes with a bit of responsibility – there’s no customer
             support in crypto.
           </p>
-          <h2 className="text-sm font-bold mt-8">What's gas fees</h2>
         </div>
       )}
     </div>

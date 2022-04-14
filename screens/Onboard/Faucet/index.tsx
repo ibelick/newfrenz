@@ -64,10 +64,10 @@ const FaucetCard = () => {
           </p>
         </div>
       </div>
-      <p>Your current ETH balance</p>
+      {/* <p>Your current ETH balance</p>
       <div className="bg-zinc-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
         0 ETH
-      </div>
+      </div> */}
 
       <div className="flex justify-between">
         <Link href="/onboard/testnet">

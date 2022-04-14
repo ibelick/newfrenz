@@ -127,10 +127,10 @@ const WalletConnected: React.FC<WalletConnectedProps> = ({ address }) => {
         <div className="bg-gray-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
           {address}
         </div>
-        <p>Your current ETH balance</p>
+        {/* <p>Your current ETH balance</p>
         <div className="bg-gray-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
           0 ETH
-        </div>
+        </div> */}
         <div className="flex justify-between">
           <Link href="/onboard/metamask">
             <a>
