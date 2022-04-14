@@ -2,22 +2,12 @@ import LayoutCard from "components/LayoutCard";
 import Button from "components/Button";
 import ImageNFT from "components/ImageNFT";
 import Link from "next/Link";
-import useNft from "hooks/useNft";
 
 const OnboardEthereum2 = () => {
   return <LayoutCard card={<EthereumCard />} />;
 };
 
 const EthereumCard = () => {
-  const { nft, isLoading } = useNft(
-    "0xd871eeb105a748d2578ecf9a8e3ebba83396dab4",
-    "3"
-  );
-
-  if (isLoading) {
-    return null;
-  }
-
   return (
     <div>
       <div>
