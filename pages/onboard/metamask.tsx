@@ -4,4 +4,4 @@ const OnboardMetamaskPage = () => {
   return <OnboardMetamask />;
 };
 
-export default OnboardMetamask;
+export default OnboardMetamaskPage;

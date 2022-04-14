@@ -42,7 +42,7 @@ const WhatsMetamask = () => {
           </Link>
           <Link href="/onboard/wallet">
             <a>
-              <Button>Next</Button>
+              <Button>Let's connect my wallet</Button>
             </a>
           </Link>
         </div>

@@ -8,7 +8,7 @@ const WhatsNext = () => {
           explain what we will do after this, mint polygon, discord to help
           onboard, help artist earn with nft, help understand other chains,
           faucet on platform, ear coin on a platform discord link for loopclub?,
-          etc.
+          etc. code is opensource
         </span>
       }
     />
