@@ -157,7 +157,9 @@ const MintCard: React.FC<MintCardProps> = ({
       <div className="flex items-center flex-col">
         <Spinner size="xl" />
         <div className="text-center mt-4">
-          <h2 className="text-xl mb-4">Confirm on Metamask to continue</h2>
+          <h2 className="text-xl mb-4 font-bold">
+            Confirm on Metamask to continue
+          </h2>
           <p className="mb-2">
             You're going to pay testnet gas fees to mint your NFT.
           </p>
@@ -199,7 +201,7 @@ const MintCard: React.FC<MintCardProps> = ({
   return (
     <div>
       <div className="text-center">
-        <span className="text-3xl">⚉</span>
+        <img src="/mint.svg" className="w-16 m-auto mt-8 mb-4" />
         {!mintedTokenId ? (
           <div>
             <h2 className="text-xl font-bold mt-8">Mint your free NFT</h2>

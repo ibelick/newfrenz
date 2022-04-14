@@ -12,15 +12,21 @@ const EthereumCard = () => {
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
-        <h2 className="text-xl font-bold mt-8">
-          Welcome to Ethereum, the digital money
-        </h2>
+        <h2 className="text-xl font-bold mt-8">Many blockchains exist</h2>
         <p className="text-gray-400 mt-2 mb-8">
-          Ethereum is the community-run technology powering the cryptocurrency
-          ether (ETH) and thousands of decentralized applications.
+          Just like any service, different blockchain exists. Right now, people
+          are trying to build the most efficient blockchain.
+        </p>
+        <img src="/eth.png" className="w-1/3 m-auto mt-12 mb-12" />
+        <p>
+          The most popular blockchain is{" "}
+          <span className="text-white bg-gray-700 rounded font-bold px-2 py-1">
+            Ethereum
+          </span>{" "}
+          and that’s the one we are gonna use for this onboarding!
         </p>
       </div>
-      <div>
+      {/* <div>
         <h3 className="mb-4">
           It's open to everyone, wherever you are in the world – all you need is
           the internet.
@@ -47,7 +53,7 @@ const EthereumCard = () => {
           contractAddress="0x1acbd5ce03bdd2a898f4acf91a39cc9c0807c39c"
           tokenId="13"
         />
-      </div>
+      </div> */}
       <div className="mt-12 flex justify-between">
         <Link href="/onboard/blockchain">
           <Button variant="tertiary">← Back</Button>

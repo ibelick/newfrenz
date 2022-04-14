@@ -12,17 +12,25 @@ const WhatsBlockchain = () => {
     <div>
       <div className="text-center">
         <span className="text-3xl">⚉</span>
-        <h2 className="text-xl font-bold mt-8">What's blockchain</h2>
+        <h2 className="text-xl font-bold mt-8">What's the blockchain</h2>
         <p className="text-gray-400 mt-2 mb-8">
-          A blockchain is a public database that is updated and shared across
-          many computers in a network.
+          Unlike a traditional database, a blockchain does not have a single
+          owner; instead, it’s accessible to everyone with permission.
         </p>
-        <div className="flex justify-center">
+        <img src="/blockchain.svg" className="w-1/3 m-auto mt-12 mb-12" />
+        <p>
+          This is why it’s also called a{" "}
+          <span className="text-white bg-gray-700 rounded font-bold px-2 py-1">
+            decentralized
+          </span>{" "}
+          system, as there’s no central hub to control the blockchain.
+        </p>
+        {/* <div className="flex justify-center">
           <ImageNFT
             contractAddress="0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0"
             tokenId="33191"
           />
-        </div>
+        </div> */}
         <div className="mt-12 flex justify-between">
           <Link href="/">
             <Button variant="tertiary">← Back</Button>

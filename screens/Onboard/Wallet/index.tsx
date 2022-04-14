@@ -117,7 +117,7 @@ const WalletConnected: React.FC<WalletConnectedProps> = ({ address }) => {
   return (
     <div>
       <div className="text-center">
-        <span className="text-3xl">⚉</span>
+        <img src="/checked.svg" className="w-16 m-auto mt-8 mb-4" />
         <h2 className="text-xl font-bold mt-8">You're connected!</h2>
         <p className="text-gray-400 mt-2 mb-8">
           Congrats! Your wallet is connected to this web3 onboarding, that's
@@ -127,8 +127,12 @@ const WalletConnected: React.FC<WalletConnectedProps> = ({ address }) => {
         <div className="bg-gray-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
           {address}
         </div>
+        <p>Your current ETH balance</p>
+        <div className="bg-gray-900 text-gray-400 text-md mt-2 mb-8 px-8 py-4 rounded-xl overflow-hidden text-ellipsis">
+          0 ETH
+        </div>
         <div className="flex justify-between">
-          <Link href="/">
+          <Link href="/onboard/ethereum-5">
             <Button variant="tertiary">← Back</Button>
           </Link>
           <Link href="/onboard/testnet">

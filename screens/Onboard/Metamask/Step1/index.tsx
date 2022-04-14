@@ -12,7 +12,7 @@ const WhatsMetamask = () => {
   return (
     <div>
       <div className="text-center">
-        <span className="text-3xl">⚉</span>
+        <img src="/wallet.svg" className="w-16 m-auto mt-8 mb-4" />
         <h2 className="text-xl font-bold mt-8">
           First, let's get a wallet with Metamask
         </h2>

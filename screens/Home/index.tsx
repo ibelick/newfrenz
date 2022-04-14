@@ -9,7 +9,7 @@ const Home = () => {
 const Card = () => {
   return (
     <div className="text-center">
-      <span className="text-3xl">⚉</span>
+      <img src="/home.svg" className="w-12 m-auto mt-8" />
       <h2 className="text-xl font-bold mt-8">Welcome to Onboarding</h2>
       <p className="text-gray-400 mt-2 mb-8">
         Enter the web3 world in a simple and fun way!

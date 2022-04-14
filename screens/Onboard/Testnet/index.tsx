@@ -33,18 +33,26 @@ const TestnetCard = () => {
   return (
     <div>
       <div className="text-center">
-        <span className="text-3xl">⚉</span>
+        <img src="/money.svg" className="w-16 m-auto mt-8 mb-4" />
         <h2 className="text-xl font-bold mb-2 mt-8">
           We're going to use fake money 🤑
         </h2>
         <p className="text-gray-400 mb-2">
           Interacting with web3 applications require ETH to pay for transactions
           if you need to. For this tutorial, we're gonna use a test Blockchain
-          also called Testnet so you can test things for free!
+          also called{" "}
+          <span className="text-white bg-gray-700 rounded font-bold px-2 py-1">
+            Testnet
+          </span>{" "}
+          so you can test things for free!
         </p>
         <p className="text-gray-400 mb-8">
           There are a few testnets out there and the one we'll be using is
-          called "Rinkeby" which is run by the Ethereum foundation.
+          called{" "}
+          <span className="text-white bg-gray-700 rounded font-bold px-2 py-1">
+            Rinkeby
+          </span>{" "}
+          which is run by the Ethereum foundation.
         </p>
         {switchNetwork && !isUserConnectedToCorrectChain ? (
           <div className="flex flex-col items-center">
@@ -52,7 +60,7 @@ const TestnetCard = () => {
           </div>
         ) : (
           <>
-            <p className="mb-6">
+            <p className="mb-6 bg-zinc-800 rounded  px-2 py-2">
               Your connect to the {chainData?.chain?.name} Testnet! ✨
             </p>
             <div className="flex justify-between">
