@@ -38,8 +38,10 @@ const WhatsMetamask = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         ></iframe>
         <div className="mt-12 flex justify-between">
-          <Link href="/">
-            <Button variant="tertiary">← Back</Button>
+          <Link href="/onboard/ethereum-5">
+            <a>
+              <Button variant="tertiary">← Back</Button>
+            </a>
           </Link>
           <Link href="/onboard/wallet">
             <a>
