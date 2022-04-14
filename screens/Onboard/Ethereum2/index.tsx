@@ -19,11 +19,11 @@ const EthereumCard = () => {
         </p>
         <img src="/eth2.svg" className="w-1/3 m-auto mt-12 mb-12" />
         <p>
-          It also powers applications also called{" "}
+          It also powers applications called{" "}
           <span className="text-white bg-gray-700 rounded font-bold px-2 py-1">
             dApp
           </span>{" "}
-          that everyone can use and no one can take down and that’s really
+          that everyone can use and no one can take down, which is pretty
           powerful when you think about it!
         </p>
       </div>

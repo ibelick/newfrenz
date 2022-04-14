@@ -27,7 +27,10 @@ const WhatsNext = () => {
               <p>
                 <span className="text-indigo-600">▪︎</span> Add more blockchain
               </p>
-
+              <p>
+                <span className="text-indigo-600">▪︎</span> Add newfrenz
+                collection on Polygon
+              </p>
               <p>
                 <span className="text-indigo-600">▪︎</span> Have our own faucet
               </p>

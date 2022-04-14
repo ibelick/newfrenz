@@ -14,8 +14,8 @@ const EthereumCard = () => {
         <span className="text-3xl">⚉</span>
         <h2 className="text-xl font-bold mt-8">Many blockchains exist</h2>
         <p className="text-gray-400 mt-2 mb-8">
-          Just like any service, different blockchain exists. Right now, people
-          are trying to build the most efficient blockchain.
+          Just like any service, different blockchains exist. More and more
+          efficient ones keep emerging.
         </p>
         <img src="/eth.png" className="w-1/3 m-auto mt-12 mb-12" />
         <p>

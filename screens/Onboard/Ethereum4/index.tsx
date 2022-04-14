@@ -19,7 +19,6 @@ const EthereumCard = () => {
         </p>
         <img src="/dapp.svg" className="w-3/4 m-auto mt-12 mb-4" />
         <div className="bg-zinc-900 text-sm mb-8 m-8 px-8 py-8">
-          <p className="mb-4 font-bold">In this onboarding you will see:</p>
           <div className="text-white">
             <p className="mb-4">
               <span className="text-indigo-600">▪︎</span> Anyone can use a Dapp,

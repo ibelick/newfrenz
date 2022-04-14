@@ -23,8 +23,8 @@ const EthereumCard = () => {
       </div>
       <div className="flex justify-center">
         <ImageNFT
-          contractAddress="0xd871eeb105a748d2578ecf9a8e3ebba83396dab4"
-          tokenId="3"
+          contractAddress="0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0"
+          tokenId="33191"
         />
       </div>
       <div className="mt-12 flex justify-between">

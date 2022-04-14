@@ -16,7 +16,9 @@ const Card = () => {
       </p>
       <div className="w-full h-0.5 bg-white mt-8 mb-8 opacity-10"></div>
       <div className="text-sm mb-8">
-        <p className="mb-4 font-bold">In this onboarding you will see:</p>
+        <p className="mb-4 font-bold">
+          In this onboarding you will see how to:
+        </p>
         <div className="text-white">
           <p>
             <span className="text-indigo-600">▪︎</span> Get a wallet
