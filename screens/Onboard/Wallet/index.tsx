@@ -1,5 +1,5 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import { useConnect, useAccount, Connector, ConnectorData } from "wagmi";
 
@@ -13,7 +13,7 @@ const OnboardWallet = () => {
   const isUserNotConnected = Boolean(!connectData.connected && !accountData);
 
   return (
-    <Layout
+    <LayoutOnboard
       card={
         isUserNotConnected ? (
           <NoWallet

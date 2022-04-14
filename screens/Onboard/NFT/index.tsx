@@ -1,10 +1,10 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import useNfts from "hooks/useNfts";
 
 const OnboardNFT = () => {
-  return <Layout card={<NFTCard />} text={<NFTText />} />;
+  return <LayoutOnboard card={<NFTCard />} text={<NFTText />} />;
 };
 
 const NFTCard = () => {

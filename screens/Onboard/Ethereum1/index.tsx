@@ -1,9 +1,9 @@
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Button from "components/Button";
 import Link from "next/Link";
 
 const OnboardEthereum1 = () => {
-  return <Layout card={<EthereumCard />} text={<EthereumText />} />;
+  return <LayoutOnboard card={<EthereumCard />} text={<EthereumText />} />;
 };
 
 const EthereumCard = () => {

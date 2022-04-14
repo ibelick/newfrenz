@@ -1,9 +1,9 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 
 const OnboardFaucet = () => {
-  return <Layout card={<FaucetCard />} text={<FaucetText />} />;
+  return <LayoutOnboard card={<FaucetCard />} text={<FaucetText />} />;
 };
 
 const FaucetText = () => {

@@ -1,10 +1,10 @@
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Button from "components/Button";
 import Link from "next/Link";
 import useNft from "hooks/useNft";
 
 const OnboardEthereum2 = () => {
-  return <Layout card={<EthereumCard />} text={<EthereumText />} />;
+  return <LayoutOnboard card={<EthereumCard />} text={<EthereumText />} />;
 };
 
 const EthereumCard = () => {

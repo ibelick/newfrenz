@@ -1,10 +1,12 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import metamask1 from "./metamask1.png";
 
 const OnboardMetamask2 = () => {
-  return <Layout card={<WhatsMetamask2 />} text={<WhatsMetamaskText2 />} />;
+  return (
+    <LayoutOnboard card={<WhatsMetamask2 />} text={<WhatsMetamaskText2 />} />
+  );
 };
 
 const WhatsMetamask2 = () => {

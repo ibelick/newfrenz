@@ -1,9 +1,9 @@
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Button from "components/Button";
 import Link from "next/Link";
 
 const OnboardCongrats = () => {
-  return <Layout card={<CongratsCard />} text={<CongratsText />} />;
+  return <LayoutOnboard card={<CongratsCard />} text={<CongratsText />} />;
 };
 
 const CongratsCard = () => {
@@ -48,13 +48,51 @@ const CongratsCard = () => {
 
 const CongratsText = () => {
   return (
-    <div>
-      <h2 className="text-sm font-bold">Want to support us?</h2>
-      <p className="mt-4 mb-4 text-sm text-gray-500">
-        An Ethereum account is an entity that can send transactions and has a
-        balance. An Ethereum account has an Ethereum address, like an inbox has
-        an email address. You can use this to send funds to an account.
+    <div className="text-sm">
+      <h2 className="font-bold mb-4">Who are behing this?</h2>
+      <p className="text-gray-400 mb-8">
+        <a
+          href="https://twitter.com/ibelick"
+          target="_blank"
+          className="underline"
+        >
+          @ibelick
+        </a>
+        {" & "}
+        <a
+          href="https://twitter.com/smoooogy"
+          target="_blank"
+          className="underline"
+        >
+          @smoooogy
+        </a>{" "}
+        for the Hello NFT World: OpenSea x Replit Hackathon
       </p>
+      <h2 className="font-bold mb-4">
+        Where do we want to move forward with this project?
+      </h2>
+      <p className="mb-8 text-gray-400">
+        We have a lot of ideas. You can check{" "}
+        <Link href="/whatsnext">
+          <a className="underline">What's next?</a>
+        </Link>{" "}
+        page.
+      </p>
+      <h2 className="font-bold mb-4">Want to support us?</h2>
+      <p className="mb-8 text-gray-400">
+        You drop a DM to us on Discord if you have extra ideas for the project
+        (Ibelick#2769, smoogy#9640). We also accept donations at
+        0x33289d5fb9054d7D01Aa7178d7F4E48EFdAEe9EC.
+      </p>
+      <h2 className="font-bold mb-4">References</h2>
+      <ul className="list-inside text-gray-400 list-decimal">
+        <li className="mb-2">
+          Positive Sum Worlds: Remaking Public Goods by Toby Shorin, Sam Hart,
+          Laura Lotti
+        </li>
+        <li className="mb-2">Credible Neutrality by Vitalik Buterin</li>
+        <li className="mb-2">The Network State by Balaji Srinivasan</li>
+      </ul>
     </div>
   );
 };

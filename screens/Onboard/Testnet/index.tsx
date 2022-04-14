@@ -1,11 +1,11 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import { useNetwork } from "wagmi";
 import { chain } from "wagmi";
 
 const OnboardTestnet = () => {
-  return <Layout card={<TestnetCard />} text={<TestnetText />} />;
+  return <LayoutOnboard card={<TestnetCard />} text={<TestnetText />} />;
 };
 
 const TestnetText = () => {

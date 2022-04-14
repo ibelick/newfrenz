@@ -1,5 +1,5 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import TextInput from "components/TextInput";
 import { useContract, useSigner } from "wagmi";
 import OnboardingCollectible from "utils/OnboardingCollectible.json";
@@ -61,7 +61,7 @@ const OnboardMint = () => {
   };
 
   return (
-    <Layout
+    <LayoutOnboard
       card={
         <MintCard
           mint={mint}

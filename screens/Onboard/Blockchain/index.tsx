@@ -1,10 +1,12 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 import useNft from "hooks/useNft";
 
 const OnboardBlockchain = () => {
-  return <Layout card={<WhatsBlockchain />} text={<WhatsBlockchainText />} />;
+  return (
+    <LayoutOnboard card={<WhatsBlockchain />} text={<WhatsBlockchainText />} />
+  );
 };
 
 const WhatsBlockchain = () => {

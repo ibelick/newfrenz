@@ -1,9 +1,11 @@
 import Button from "components/Button";
-import Layout from "components/Layout";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/Link";
 
 const OnboardMetamask = () => {
-  return <Layout card={<WhatsMetamask />} text={<WhatsMetamaskText />} />;
+  return (
+    <LayoutOnboard card={<WhatsMetamask />} text={<WhatsMetamaskText />} />
+  );
 };
 
 const WhatsMetamask = () => {
