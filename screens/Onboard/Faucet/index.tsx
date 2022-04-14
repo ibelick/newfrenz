@@ -75,9 +75,9 @@ const FaucetCard = () => {
             <Button variant="tertiary">← Back</Button>
           </a>
         </Link>
-        <Link href="/onboard/mint">
+        <Link href="/onboard/nft-intro">
           <a>
-            <Button>Go mint my NFT</Button>
+            <Button>Next</Button>
           </a>
         </Link>
       </div>

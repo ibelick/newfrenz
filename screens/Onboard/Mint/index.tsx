@@ -89,7 +89,7 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
       {mintedTokenId ? (
         <div>
           <h2 className="text-sm font-bold">What is Etherscan?</h2>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-400">
             NFTs are tokens that we can use to represent ownership of unique
             items. They let us tokenise things like art, collectibles, even real
             estate. They can only have one official owner at a time and they're
@@ -100,7 +100,7 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
       ) : (
         <div>
           <h2 className="text-sm font-bold">What is an NFT?</h2>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-400">
             NFTs are tokens that we can use to represent ownership of unique
             items. They let us tokenise things like art, collectibles, even real
             estate. They can only have one official owner at a time and they're
@@ -110,14 +110,14 @@ const WalletText: React.FC<WalletTextProps> = ({ mintedTokenId }) => {
           <h2 className="text-sm font-bold mt-8">
             What does minting an NFT means?
           </h2>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-400">
             An NFT can only have one owner at a time. Ownership is managed
             through the uniqueID and metadata that no other token can replicate.
             NFTs are minted through smart contracts that assign ownership and
             manage the transferability of the NFT's.
           </p>
           <h2 className="text-sm font-bold mt-8">How to stay safe?</h2>
-          <p className="mt-4 text-sm text-gray-500">
+          <p className="mt-4 text-sm text-gray-400">
             Wallets require a bit of a different mindset when it comes to
             safety. Financial freedom and the ability to access and use funds
             anywhere comes with a bit of responsibility – there’s no customer
@@ -155,20 +155,6 @@ const MintCard: React.FC<MintCardProps> = ({
     mint(props.name);
   };
 
-  // if (isApprovedWalletLoading) {
-  //   return (
-  //     <div className="flex items-center flex-col">
-  //       <Spinner size="xl" />
-  //       <div className="text-center mt-4">
-  //         <h2 className="text-xl mb-4">Confirm on Metamask to continue</h2>
-  //         <p className="mb-2">
-  //           You're going to pay testnet gas fees to mint your NFT.
-  //         </p>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
   if (isMintingLoading) {
     return (
       <div className="flex items-center flex-col">
@@ -202,10 +188,12 @@ const MintCard: React.FC<MintCardProps> = ({
   return (
     <div>
       <div className="text-center">
-        <img src="/mint.svg" className="w-16 m-auto mt-8 mb-4" />
         {!mintedTokenId ? (
           <div>
             <h2 className="text-xl font-bold mt-8">Mint your free NFT</h2>
+            <p className="text-gray-400 mt-2 mb-8">
+              Simply enter your name to mint a custom NFT of the image below.
+            </p>
           </div>
         ) : (
           <div className="flex flex-col">
@@ -247,20 +235,24 @@ const MintCard: React.FC<MintCardProps> = ({
             ) : null}
           </div>
           <div className="mt-8">
-            {!mintedTokenId ? (
-              <Button
-                type="submit"
-                isLoading={isApprovedWalletLoading || isMintingLoading}
-              >
-                Mint NFT
-              </Button>
-            ) : (
-              <Link href="/onboard/nft">
+            <div className="flex justify-between">
+              <Link href="/onboard/nft-intro-3">
                 <a>
-                  <Button type="button">What did I mint?</Button>
+                  <Button variant="tertiary">← Back</Button>
                 </a>
               </Link>
-            )}
+              {!mintedTokenId ? (
+                <Button type="submit" isLoading={isMintingLoading}>
+                  Mint NFT
+                </Button>
+              ) : (
+                <Link href="/onboard/nft">
+                  <a>
+                    <Button type="button">What did I mint?</Button>
+                  </a>
+                </Link>
+              )}
+            </div>
           </div>
         </form>
       </div>

@@ -12,7 +12,9 @@ const Header = () => {
     <header className="flex items-center justify-between mb-24">
       <div>
         <Link href="/">
-          <a>→ ONBOARDING</a>
+          <a>
+            <span className="text-xl">⚉ </span>NEWFRENZ
+          </a>
         </Link>
       </div>
       <div className="text-sm">
