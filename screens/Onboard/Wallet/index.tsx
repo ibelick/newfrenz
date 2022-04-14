@@ -132,7 +132,7 @@ const WalletConnected: React.FC<WalletConnectedProps> = ({ address }) => {
           0 ETH
         </div>
         <div className="flex justify-between">
-          <Link href="/onboard/ethereum-5">
+          <Link href="/onboard/metamask">
             <a>
               <Button variant="tertiary">← Back</Button>
             </a>

@@ -14,7 +14,17 @@ const NFTCard = () => {
       <div className="text-center">
         <span className="text-3xl">⚉</span>
         <h2 className="text-xl font-bold mt-8">What did I mint?</h2>
-        <p className="text-gray-400 mt-2 mb-8"></p>
+
+        <p className="text-gray-400 mt-2 mb-8">
+          Here is the NFT you just minted! It's yours and you can verify it on
+          the blockchain.
+        </p>
+        <img className="m-auto mb-8" src="/frame.svg" alt="nft" />
+        <p className="text-gray-400 mt-2 mb-8">
+          In the future, owning this NFT will give you access to specific
+          sections of this website and to a community. Stay tuned!
+        </p>
+        <Button variant="tertiary">See the collection on Opensea</Button>
         <div className="mt-12 flex justify-between">
           <Link href="/onboard/nft">
             <a>
@@ -37,7 +47,7 @@ const NFTText = () => {
 
   return (
     <div>
-      <h2 className="text-sm font-bold mb-2">Your new frens</h2>
+      <h2 className="text-sm font-bold mb-2">Recent frenz</h2>
       <div className="flex flex-wrap gap-4">
         {collection?.assets.slice(0, 10).map((asset: any) => {
           return (

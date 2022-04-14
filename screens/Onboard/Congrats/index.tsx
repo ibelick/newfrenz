@@ -86,15 +86,6 @@ const CongratsText = () => {
         (Ibelick#2769, smoogy#9640). We also accept donations at
         0x33289d5fb9054d7D01Aa7178d7F4E48EFdAEe9EC.
       </p>
-      <h2 className="font-bold mb-4">References</h2>
-      <ul className="list-inside text-gray-400 list-decimal">
-        <li className="mb-2">
-          Positive Sum Worlds: Remaking Public Goods by Toby Shorin, Sam Hart,
-          Laura Lotti
-        </li>
-        <li className="mb-2">Credible Neutrality by Vitalik Buterin</li>
-        <li className="mb-2">The Network State by Balaji Srinivasan</li>
-      </ul>
     </div>
   );
 };

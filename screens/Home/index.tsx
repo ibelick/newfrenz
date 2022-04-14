@@ -10,9 +10,9 @@ const Card = () => {
   return (
     <div className="text-center">
       <img src="/home.svg" className="w-12 m-auto mt-8" />
-      <h2 className="text-xl font-bold mt-8">Welcome to Onboarding</h2>
+      <h2 className="text-xl font-bold mt-8">Welcome new frenz!</h2>
       <p className="text-gray-400 mt-2 mb-8">
-        Enter the web3 world in a simple and fun way!
+        Are you ready to enter the web3 world?
       </p>
       <div className="w-full h-0.5 bg-white mt-8 mb-8 opacity-10"></div>
       <div className="text-sm mb-8">
