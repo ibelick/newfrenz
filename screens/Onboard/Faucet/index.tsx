@@ -36,6 +36,7 @@ const FaucetCard = () => {
           <a
             href="https://rinkebyfaucet.com/"
             target="_blank"
+            rel="noreferrer"
             className="underline"
           >
             one created by Alchemy.

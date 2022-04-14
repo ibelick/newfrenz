@@ -25,15 +25,11 @@ const WhatsBlockchain = () => {
           </span>{" "}
           system, as there’s no central hub to control the blockchain.
         </p>
-        {/* <div className="flex justify-center">
-          <ImageNFT
-            contractAddress="0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0"
-            tokenId="33191"
-          />
-        </div> */}
         <div className="mt-12 flex justify-between">
           <Link href="/">
-            <Button variant="tertiary">← Back</Button>
+            <a>
+              <Button variant="tertiary">← Back</Button>
+            </a>
           </Link>
           <Link href="/onboard/ethereum-1">
             <a>

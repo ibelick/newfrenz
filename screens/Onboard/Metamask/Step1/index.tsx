@@ -24,6 +24,7 @@ const WhatsMetamask = () => {
         <a
           href="https://metamask.io/download/"
           target="_blank"
+          rel="noreferrer"
           className="mb-4"
         >
           <Button variant="secondary">Download Metamask for Chrome</Button>

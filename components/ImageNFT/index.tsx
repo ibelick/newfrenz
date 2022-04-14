@@ -24,6 +24,7 @@ const ImageNFT: React.FC<ImageNFTProps> = ({ contractAddress, tokenId }) => {
         <a
           href="https://opensea.io/assets/0xb932a70a57673d89f4acffbe830e8ed7f75fb9e0/33191"
           target="_blank"
+          rel="noreferrer"
           className="underline"
         >
           Minted as an NFT

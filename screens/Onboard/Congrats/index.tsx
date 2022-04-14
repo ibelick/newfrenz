@@ -54,6 +54,7 @@ const CongratsText = () => {
         <a
           href="https://twitter.com/ibelick"
           target="_blank"
+          rel="noreferrer"
           className="underline"
         >
           @ibelick
@@ -62,6 +63,7 @@ const CongratsText = () => {
         <a
           href="https://twitter.com/smoooogy"
           target="_blank"
+          rel="noreferrer"
           className="underline"
         >
           @smoooogy
