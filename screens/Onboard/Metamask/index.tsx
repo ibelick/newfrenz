@@ -25,18 +25,20 @@ const WhatsMetamask = () => {
           href="https://metamask.io/download/"
           target="_blank"
           rel="noreferrer"
-          className="mb-4"
+          className="mb-8 block"
         >
           <Button variant="secondary">Download Metamask for Chrome</Button>
         </a>
-        <iframe
-          width="560"
-          className="rounded-xl mt-4"
-          height="315"
-          src="https://www.youtube.com/embed/GNPz-Dv5BjM?controls=0&amp;start=20"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        ></iframe>
+        <div className="relative" style={{ paddingTop: "56.25%" }}>
+          <iframe
+            width="560"
+            className="rounded-xl absolute inset-0 w-full h-full"
+            height="315"
+            src="https://www.youtube.com/embed/GNPz-Dv5BjM?controls=0&amp;start=20"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          ></iframe>
+        </div>
         <div className="mt-12 flex justify-between">
           <Link href="/onboard/ethereum-5">
             <a>

@@ -1,4 +1,4 @@
-import OnboardMetamask from "screens/Onboard/Metamask/Step1";
+import OnboardMetamask from "screens/Onboard/Metamask";
 
 const OnboardMetamaskPage = () => {
   return <OnboardMetamask />;
