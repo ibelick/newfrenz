@@ -90,8 +90,7 @@ const CongratsText = () => {
       <h2 className="font-bold mb-4">Want to support us?</h2>
       <p className="mb-8 text-gray-400">
         You drop a DM to us on Discord if you have extra ideas for the project
-        (Ibelick#2769, smoogy#9640). We also accept donations at
-        0x33289d5fb9054d7D01Aa7178d7F4E48EFdAEe9EC.
+        (Ibelick#2769, smoogy#9640).
       </p>
     </div>
   );
