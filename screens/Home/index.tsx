@@ -3,7 +3,20 @@ import LayoutCard from "components/LayoutCard";
 import Link from "next/link";
 
 const Home = () => {
-  return <LayoutCard card={<Card />} />;
+  return (
+    <LayoutCard
+      card={<Card />}
+      banner={
+        <a
+          href="https://twitter.com/Ibelick/status/1516744408355463168"
+          target="_blank"
+          rel="noreferrer"
+        >
+          We won the Hello NFT World: OpenSea x Replit Hackathon! 🎉
+        </a>
+      }
+    />
+  );
 };
 
 const Card = () => {

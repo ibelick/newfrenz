@@ -16,10 +16,13 @@ const WhatsMetamask = () => {
         <h2 className="text-xl font-bold mt-8">
           First, let's get a wallet with Metamask
         </h2>
-        <p className="text-gray-400 mt-2 mb-8">
+        <p className="text-gray-400 my-2">
           In order to follow this interactive onboarding you will need to create
           a Metamask wallet. It only takes a few seconds. First let’s download
-          Metamask
+          Metamask.
+        </p>
+        <p className="text-gray-400 mb-8">
+          You can install it on modern browsers, on iOS or Android.
         </p>
         <a
           href="https://metamask.io/download/"
@@ -27,7 +30,7 @@ const WhatsMetamask = () => {
           rel="noreferrer"
           className="mb-8 block"
         >
-          <Button variant="secondary">Download Metamask for Chrome</Button>
+          <Button variant="secondary">Download Metamask</Button>
         </a>
         <div className="relative" style={{ paddingTop: "56.25%" }}>
           <iframe

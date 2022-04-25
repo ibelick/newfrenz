@@ -68,9 +68,14 @@ const NoWallet: React.FC<NoWalletProps> = ({
       <div className="text-center">
         <img src="/connect.svg" className="w-16 m-auto mt-8 mb-4" />
         <h2 className="text-xl font-bold mt-8">Let's connect your wallet!</h2>
-        <p className="text-gray-400 mt-2 mb-8">
+        <p className="text-gray-400 my-2">
           Now that you have installed Metamask and created an account you can
           connect it to any web3 services.
+        </p>
+        <p className="text-gray-400 mb-8">
+          If you're on a browser, the MetaMask extension will open. If you're on
+          mobile, open the MetaMask application, and go to newfrenz.xyz through
+          it.
         </p>
         <div className="text-sm mb-8">
           <div className="w-full h-0.5 bg-white mt-8 mb-8 opacity-10"></div>

@@ -1,5 +1,6 @@
 import Spinner from "components/Spinner";
 import Header from "../Header";
+import Footer from "../Footer";
 
 interface LayoutOnboardProps {
   card: JSX.Element;
@@ -32,6 +33,7 @@ const LayoutOnboard: React.FC<LayoutOnboardProps> = ({
           </div>
           <div className="lg:ml-12 py-8 lg:w-2/5">{text}</div>
         </div>
+        <Footer />
       </div>
     </div>
   );
