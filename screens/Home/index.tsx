@@ -1,20 +1,21 @@
 import Button from "components/Button";
-import LayoutCard from "components/LayoutCard";
+import LayoutOnboard from "components/LayoutOnboard";
 import Link from "next/link";
 
-const Home = () => {
+const OnboardHome = () => {
   return (
-    <LayoutCard
+    <LayoutOnboard
       card={<Card />}
-      banner={
-        <a
-          href="https://twitter.com/Ibelick/status/1516744408355463168"
-          target="_blank"
-          rel="noreferrer"
-        >
-          We won the Hello NFT World: OpenSea x Replit Hackathon! 🎉
-        </a>
-      }
+      // banner={
+      //   <a
+      //     href="https://twitter.com/Ibelick/status/1516744408355463168"
+      //     target="_blank"
+      //     rel="noreferrer"
+      //   >
+      //     We won the Hello NFT World: OpenSea x Replit Hackathon! 🎉
+      //   </a>
+      // }
+      text={<HomeText />}
     />
   );
 };
@@ -56,4 +57,40 @@ const Card = () => {
   );
 };
 
-export default Home;
+const HomeText = () => {
+  return (
+    <div>
+      <h2 className="text-sm font-bold ">UPCOMING TOPICS AND FEATURES</h2>
+      <div className="bg-black bg-opacity-20 p-6  mt-4 border-l-2 border-slate-700">
+        {" "}
+        <h2 className="text-sm font-bold">Testnet to Mainnet</h2>
+        <p className="mt-1 text-sm text-gray-400">
+          Learn how to buy and transfer real crypto.
+        </p>
+      </div>
+      <div className="bg-black bg-opacity-20 p-6  mt-4 border-l-2 border-slate-700">
+        {" "}
+        <h2 className="text-sm font-bold">New concepts</h2>
+        <p className="mt-1 text-sm text-gray-400">
+          Learn more about DAOs, Tokens, Transactions
+        </p>
+      </div>
+      <div className="bg-black bg-opacity-20 p-6  mt-4 border-l-2 border-slate-700">
+        {" "}
+        <h2 className="text-sm font-bold">Multi-chain</h2>
+        <p className="mt-1 text-sm text-gray-400">
+          Learn to use different blockchain like Polygon.
+        </p>
+      </div>
+      <div className="bg-black bg-opacity-20 p-6  mt-4 border-l-2 border-slate-700">
+        {" "}
+        <h2 className="text-sm font-bold">Wallet integrations</h2>
+        <p className="mt-1 text-sm text-gray-400">
+          Choose between different wallet.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default OnboardHome;
