@@ -5,13 +5,13 @@ import Footer from "../Footer";
 interface LayoutOnboardProps {
   card: JSX.Element;
   text: JSX.Element;
-  loadingMsg?: string | null;
+  banner?: JSX.Element | null;
 }
 
 const LayoutOnboard: React.FC<LayoutOnboardProps> = ({
   card,
   text,
-  loadingMsg,
+  banner,
 }) => {
   return (
     <div className="bg-zinc-900 min-h-screen text-white pt-8 pb-12 font-IBM bg-[url('../public/bg-gradient.svg')]">
@@ -19,12 +19,9 @@ const LayoutOnboard: React.FC<LayoutOnboardProps> = ({
         <Header />
         <div className="lg:flex items-start">
           <div className="flex flex-col w-full lg:w-3/5 ">
-            {loadingMsg ? (
+            {banner ? (
               <div className="bg-black bg-opacity-40 p-2 rounded mb-4 flex items-center relative justify-center">
-                <div className="absolute left-4">
-                  <Spinner />
-                </div>
-                {loadingMsg}
+                {banner}
               </div>
             ) : null}
             <div className="bg-black rounded-xl py-8 px-8 lg:px-12 border border-gray-800 shadow-2xl ">

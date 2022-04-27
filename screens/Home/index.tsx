@@ -6,15 +6,15 @@ const OnboardHome = () => {
   return (
     <LayoutOnboard
       card={<Card />}
-      // banner={
-      //   <a
-      //     href="https://twitter.com/Ibelick/status/1516744408355463168"
-      //     target="_blank"
-      //     rel="noreferrer"
-      //   >
-      //     We won the Hello NFT World: OpenSea x Replit Hackathon! 🎉
-      //   </a>
-      // }
+      banner={
+        <a
+          href="https://twitter.com/Ibelick/status/1516744408355463168"
+          target="_blank"
+          rel="noreferrer"
+        >
+          We won the Hello NFT World: OpenSea x Replit Hackathon! 🎉
+        </a>
+      }
       text={<HomeText />}
     />
   );

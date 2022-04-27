@@ -62,8 +62,15 @@ const OnboardMint = () => {
 
   return (
     <LayoutOnboard
-      loadingMsg={
-        isApprovedWalletLoading ? "Confirm on Metamask to continue" : null
+      banner={
+        isApprovedWalletLoading ? (
+          <div>
+            <div className="absolute left-4">
+              <Spinner />
+            </div>{" "}
+            Confirm on Metamask to continue
+          </div>
+        ) : null
       }
       card={
         <MintCard
